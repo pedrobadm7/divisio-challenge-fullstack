@@ -1,19 +1,15 @@
-import { GlobalStyle } from './style-guide/GlobalStyle'
+import { ApolloProvider } from '@apollo/client'
+import client from 'config/apollo-client'
+import Routes from './routes'
 
-import * as S from './styles'
+import { GlobalStyle } from './style-guide/GlobalStyle'
 
 const App = () => (
   <>
-    <GlobalStyle />
-    <S.Container>
-      <S.Header>
-        <S.Logo />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <S.Link>Learn React</S.Link>
-      </S.Header>
-    </S.Container>
+    <ApolloProvider client={client}>
+      <GlobalStyle />
+      <Routes />
+    </ApolloProvider>
   </>
 )
 
