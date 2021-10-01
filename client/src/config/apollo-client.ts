@@ -6,7 +6,7 @@ import {
 } from '@apollo/client'
 
 const httpLink = createHttpLink({
-  uri: process.env.REACT_APP_SERVER_URL
+  uri: 'https://graphql-pokemon2.vercel.app/'
 })
 
 const cleanTypeName = new ApolloLink((operation, forward) => {

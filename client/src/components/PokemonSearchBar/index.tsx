@@ -9,7 +9,7 @@ const PokemonSearchBar = () => {
       <FaSearch
         size={20}
         color="#fff"
-        style={{ position: 'absolute', right: '690px' }}
+        style={{ position: 'absolute', right: '590px' }}
       />
     </S.MainContainer>
   )

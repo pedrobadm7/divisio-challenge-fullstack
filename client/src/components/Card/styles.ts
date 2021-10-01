@@ -3,8 +3,8 @@ import backgroundPokedex from '../images/Pokeball.png'
 
 export const PokemonContainer = styled.div`
   background-color: #b5b9c4;
-  width: 400px;
-  max-height: 150px;
+  width: 290px;
+  max-height: 157px;
   display: flex;
   align-items: center;
   padding: 16px 24px;
@@ -45,6 +45,7 @@ export const PokemonInfos = styled.div`
   flex-direction: column;
 
   p {
+    font-family: Roboto;
     font-size: 26px;
     color: #ffffff;
     font-weight: bold;
