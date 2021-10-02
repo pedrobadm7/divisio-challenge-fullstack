@@ -2,14 +2,17 @@ import styled from 'styled-components'
 import backgroundPokedex from '../images/Pokeball.png'
 
 export const PokemonContainer = styled.div`
-  background-color: #b5b9c4;
-  width: 290px;
-  max-height: 157px;
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #ffffff;
+  width: 400px;
+  height: 300px;
+  max-height: 300px;
   display: flex;
   align-items: center;
   padding: 16px 24px;
   margin-top: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
   background-image: url(${backgroundPokedex});
   background-position: right;
   background-repeat: no-repeat;
@@ -47,7 +50,7 @@ export const PokemonInfos = styled.div`
   p {
     font-family: Roboto;
     font-size: 26px;
-    color: #ffffff;
+    color: #262835;
     font-weight: bold;
     margin: 8px 0;
   }
@@ -58,13 +61,13 @@ export const PokemonInfos = styled.div`
   }
 
   span {
-    background-color: #ff3d71;
+    background-color: #efefef;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: #262835;
     font-size: 12px;
-    border-radius: 6px;
+    border-radius: 32px;
     margin-bottom: 6px;
     margin-right: 10px;
     padding: 5px;
@@ -73,4 +76,6 @@ export const PokemonInfos = styled.div`
 
 export const PokemonStats = styled.div`
   display: flex;
+  flex-direction: column;
+  width: 100px;
 `

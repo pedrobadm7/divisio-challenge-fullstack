@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import pokedex from '../../components/images/pokedex.svg'
 import pokeBall from '../../components/images/pokeball.svg'
-import bulbasaur from '../../components/images/bulbasauro.png'
 
 import * as S from './styles'
 
@@ -18,6 +17,12 @@ interface PokemonsInfo {
   maxCP: number
   maxHP: number
   number: string
+  types: TypesPokemon[]
+}
+
+interface TypesPokemon {
+  primaryType: string
+  secondType: string
 }
 
 const Pokedex = () => {
@@ -28,6 +33,7 @@ const Pokedex = () => {
       first: 151
     }
   })
+  // console.log(pokemons)
 
   useEffect(() => {
     if (pokemons) {
@@ -42,17 +48,22 @@ const Pokedex = () => {
         <img src={pokedex} style={{ height: '50px' }} />
       </S.Header>
       <PokemonSearchBar />
-      {pokemonInfos &&
-        pokemonInfos.map((pokemon) => (
-          <Card
-            key={pokemon.id}
-            number={pokemon.number}
-            name={pokemon.name}
-            maxCP={pokemon.maxCP}
-            maxHP={pokemon.maxHP}
-            imagePoke={pokemon.image}
-          />
-        ))}
+      <S.BoxContent>
+        <S.CardContainer>
+          {pokemonInfos &&
+            pokemonInfos.map((pokemon) => (
+              <Card
+                key={pokemon.id}
+                number={pokemon.number}
+                name={pokemon.name}
+                maxCP={pokemon.maxCP}
+                maxHP={pokemon.maxHP}
+                imagePoke={pokemon.image}
+                types={pokemon.types}
+              />
+            ))}
+        </S.CardContainer>
+      </S.BoxContent>
     </S.MainContainer>
   )
 }

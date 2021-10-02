@@ -1,4 +1,5 @@
 import React from 'react'
+import { types } from 'util'
 import * as S from './styles'
 
 interface PokeCardProps {
@@ -8,18 +9,35 @@ interface PokeCardProps {
   maxCP: number
   maxHP: number
   number: string
+  types: TypesPokemon[]
 }
 
-const Card = (props: PokeCardProps) => {
+interface TypesPokemon {
+  primaryType: string
+  secondType: string
+}
+
+const Card = ({
+  name,
+  id,
+  imagePoke,
+  maxCP,
+  maxHP,
+  number,
+  types
+}: PokeCardProps) => {
+  console.log(types)
   return (
     <S.PokemonContainer>
-      <S.PokemonImage image={props.imagePoke} />
+      <S.PokemonImage image={imagePoke} />
       <S.PokemonInfos>
-        <h1>#{props.number}</h1>
-        <p>{props.name}</p>
+        <h1>#{number}</h1>
+        <p>{name}</p>
         <S.PokemonStats>
-          <span>CP:{props.maxCP}</span>
-          <span>HP:{props.maxHP}</span>
+          <span>CP:{maxCP}</span>
+          <span>HP:{maxHP}</span>
+          <span>{types[0]}</span>
+          {types[1] && <span>{types[1]}</span>}
         </S.PokemonStats>
       </S.PokemonInfos>
     </S.PokemonContainer>

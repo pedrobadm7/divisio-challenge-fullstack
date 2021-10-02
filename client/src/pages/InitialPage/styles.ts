@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import pokemonSea from '../../components/images/pokemonSea.jpg'
 
 export const Container = styled.div`
   display: flex;
@@ -8,7 +9,8 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-image: linear-gradient(#fffe60, #f8d110);
+  background-image: url(${pokemonSea});
+  background-size: 100%;
 `
 
 export const ButtonLink = styled(Link)`
