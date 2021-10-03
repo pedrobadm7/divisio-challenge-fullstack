@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import backgroundPokedex from '../images/Pokeball.png'
+import backgroundPokedex from '../../static/images/Pokeball.png'
 
 export const PokemonContainer = styled.div`
   display: flex;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import pokedex from 'components/images/pokedex.svg'
-import pokeBall from 'components/images/pokeball.svg'
+import pokedex from '../../static/images/pokedex.svg'
+import pokeBall from '../../static/images/pokeball.svg'
 
 import * as S from './styles'
 

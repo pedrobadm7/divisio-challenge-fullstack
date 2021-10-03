@@ -1,7 +1,7 @@
-import React, { FunctionComponent } from 'react'
+import React from 'react'
 import * as S from './styles'
 import ReactDOM from 'react-dom'
-import closeIcon from '../../components/images/close.png'
+import closeIcon from '../../static/images/close.png'
 
 export interface ModalProps {
   isShown: boolean

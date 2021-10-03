@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import pokemonSea from '../../components/images/pokemonSea.jpg'
+import pokemonSea from '../../static/images/pokemonSea.jpg'
 
 export const Container = styled.div`
   display: flex;

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import pokemonRuby from '../../components/images/pokemonRuby.png'
+import pokemonRuby from '../../static/images/pokemonRuby.png'
 
 export const MainContainer = styled.div`
   background-image: url(${pokemonRuby});
