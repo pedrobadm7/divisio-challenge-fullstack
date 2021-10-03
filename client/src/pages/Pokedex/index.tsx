@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import pokedex from '../../components/images/pokedex.svg'
-import pokeBall from '../../components/images/pokeball.svg'
+import pokedex from 'components/images/pokedex.svg'
+import pokeBall from 'components/images/pokeball.svg'
 
 import * as S from './styles'
 
 import { useQuery } from '@apollo/client'
-import { POKEMON_API } from '../../gql/pokemonAPI'
+import { POKEMON_API } from 'gql/pokemonAPI'
 
-import PokemonSearchBar from '../../components/PokemonSearchBar/index'
-import Card from '../../components/Card/index'
+import PokemonSearchBar from 'components/PokemonSearchBar/index'
+import Card from 'components/Card/index'
 
 interface PokemonsInfo {
   id: string
@@ -18,8 +18,17 @@ interface PokemonsInfo {
   maxHP: number
   number: string
   types: TypesPokemon[]
+  attacks: Special
 }
 
+interface Special {
+  special: SpecialAttacks[]
+}
+
+interface SpecialAttacks {
+  name: string
+  damage: number
+}
 interface TypesPokemon {
   primaryType: string
   secondType: string
@@ -27,13 +36,13 @@ interface TypesPokemon {
 
 const Pokedex = () => {
   const [pokemonInfos, setPokemonInfos] = useState<PokemonsInfo[]>([])
+  console.log(pokemonInfos)
 
   const { data: { pokemons = [] } = {} } = useQuery(POKEMON_API, {
     variables: {
       first: 151
     }
   })
-  // console.log(pokemons)
 
   useEffect(() => {
     if (pokemons) {
@@ -60,6 +69,7 @@ const Pokedex = () => {
                 maxHP={pokemon.maxHP}
                 imagePoke={pokemon.image}
                 types={pokemon.types}
+                attacks={pokemon.attacks}
               />
             ))}
         </S.CardContainer>
