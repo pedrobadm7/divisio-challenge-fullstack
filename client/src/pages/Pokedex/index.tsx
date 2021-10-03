@@ -7,7 +7,6 @@ import * as S from './styles'
 import { useQuery } from '@apollo/client'
 import { POKEMON_API } from 'gql/pokemonAPI'
 
-import PokemonSearchBar from 'components/PokemonSearchBar/index'
 import Card from 'components/Card/index'
 
 interface PokemonsInfo {
@@ -56,7 +55,7 @@ const Pokedex = () => {
         <img src={pokeBall} style={{ height: '90px', paddingRight: '30px' }} />
         <img src={pokedex} style={{ height: '50px' }} />
       </S.Header>
-      <PokemonSearchBar />
+
       <S.BoxContent>
         <S.CardContainer>
           {pokemonInfos &&
