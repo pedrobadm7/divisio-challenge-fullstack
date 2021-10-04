@@ -35,7 +35,7 @@ interface TypesPokemon {
 
 const Pokedex = () => {
   const [pokemonInfos, setPokemonInfos] = useState<PokemonsInfo[]>([])
-  console.log(pokemonInfos)
+  const [searchTerm, setSearchTerm] = useState<string>('')
 
   const { data: { pokemons = [] } = {} } = useQuery(POKEMON_API, {
     variables: {
@@ -48,6 +48,7 @@ const Pokedex = () => {
       setPokemonInfos(pokemons)
     }
   }, [pokemonInfos])
+  console.log(pokemonInfos)
 
   return (
     <S.MainContainer>
@@ -55,22 +56,38 @@ const Pokedex = () => {
         <img src={pokeBall} style={{ height: '90px', paddingRight: '30px' }} />
         <img src={pokedex} style={{ height: '50px' }} />
       </S.Header>
+      <S.SearchPokemonBarContainer>
+        <S.InputSearch
+          placeholder="Search your pokemon..."
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </S.SearchPokemonBarContainer>
 
       <S.BoxContent>
         <S.CardContainer>
           {pokemonInfos &&
-            pokemonInfos.map((pokemon) => (
-              <Card
-                key={pokemon.id}
-                number={pokemon.number}
-                name={pokemon.name}
-                maxCP={pokemon.maxCP}
-                maxHP={pokemon.maxHP}
-                imagePoke={pokemon.image}
-                types={pokemon.types}
-                attacks={pokemon.attacks}
-              />
-            ))}
+            pokemonInfos
+              .filter((pokemon) => {
+                if (searchTerm === '') {
+                  return pokemon
+                } else if (
+                  pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
+                ) {
+                  return pokemon
+                }
+              })
+              .map((pokemon) => (
+                <Card
+                  key={pokemon.id}
+                  number={pokemon.number}
+                  name={pokemon.name}
+                  maxCP={pokemon.maxCP}
+                  maxHP={pokemon.maxHP}
+                  imagePoke={pokemon.image}
+                  types={pokemon.types}
+                  attacks={pokemon.attacks}
+                />
+              ))}
         </S.CardContainer>
       </S.BoxContent>
     </S.MainContainer>

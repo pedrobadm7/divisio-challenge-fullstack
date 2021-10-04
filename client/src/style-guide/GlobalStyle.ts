@@ -25,15 +25,16 @@ export const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-track {
     background-color: #F4F4F4;
-    
+    border-radius: 50px;
   }
   ::-webkit-scrollbar {
       width: 6px;
-      background: #F4F4F4;      
+      background: #F4F4F4;     
+      border-radius: 50px; 
   }
   ::-webkit-scrollbar-thumb {
       background: #dad7d7;
-      border-radius: 15px;
+      border-radius: 50px;
   }
 
 `

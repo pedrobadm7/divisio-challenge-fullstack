@@ -5,8 +5,8 @@ export const PokemonContainer = styled.div`
   display: flex;
   flex-direction: row-reverse;
   background-color: #ffffff;
-  width: 400px;
-  height: 300px;
+  width: 300px;
+  height: 150px;
   max-height: 300px;
   display: flex;
   align-items: center;
@@ -21,6 +21,11 @@ export const PokemonContainer = styled.div`
 
   &:hover {
     transform: scale(1.03);
+  }
+
+  @media (max-width: 414px) {
+    width: 290px;
+    height: 150px;
   }
 `
 
