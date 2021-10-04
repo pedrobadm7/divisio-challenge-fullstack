@@ -68,7 +68,7 @@ export const InputSearch = styled.input`
   font-size: 18px;
   font-family: Roboto, Helvetica, sans-serif;
   font-weight: bold;
-  margin: 40px;
+  margin: 40px 0 40px 0;
   ::-webkit-input-placeholder {
     font-family: Roboto, Helvetica, sans-serif;
     font-style: normal;
@@ -77,7 +77,25 @@ export const InputSearch = styled.input`
     padding: 0 0 0 15px;
   }
 
-  @media (max-width: 415px) {
+  @media (max-width: 540px) {
     width: 300px;
+  }
+`
+
+export const Pokeball = styled.img`
+  height: 90px;
+  padding-right: 30px;
+
+  @media (max-width: 320px) {
+    height: 50px;
+    padding: 10px;
+  }
+`
+
+export const Pokedex = styled.img`
+  height: 50px;
+
+  @media (max-width: 320px) {
+    height: 35px;
   }
 `

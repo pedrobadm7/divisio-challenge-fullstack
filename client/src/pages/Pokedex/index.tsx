@@ -53,8 +53,8 @@ const Pokedex = () => {
   return (
     <S.MainContainer>
       <S.Header>
-        <img src={pokeBall} style={{ height: '90px', paddingRight: '30px' }} />
-        <img src={pokedex} style={{ height: '50px' }} />
+        <S.Pokeball src={pokeBall} />
+        <S.Pokedex src={pokedex} />
       </S.Header>
       <S.SearchPokemonBarContainer>
         <S.InputSearch
