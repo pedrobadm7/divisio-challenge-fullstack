@@ -65,9 +65,9 @@ export const InputSearch = styled.input`
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   color: rgba(23, 23, 27, 0.6);
-  font-size: 18px;
   font-family: Roboto, Helvetica, sans-serif;
-  font-weight: bold;
+  font-weight: normal;
+  padding: 0 0 0 15px;
   margin: 40px 0 40px 0;
   ::-webkit-input-placeholder {
     font-family: Roboto, Helvetica, sans-serif;

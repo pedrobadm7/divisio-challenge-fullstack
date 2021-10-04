@@ -59,4 +59,8 @@ export const Content = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
   width: 30vw;
+
+  @media (max-width: 360px) {
+    width: 80vw;
+  }
 `
