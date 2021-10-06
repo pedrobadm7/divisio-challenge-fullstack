@@ -83,8 +83,6 @@ const Pokedex = () => {
                   pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
                 ) {
                   return pokemon
-                } else {
-                  return <h1>Parece que esse pokemon não exites</h1>
                 }
               })
               .map((pokemon) => (
