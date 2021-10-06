@@ -8,6 +8,7 @@ import { useQuery } from '@apollo/client'
 import { POKEMON_API } from 'gql/pokemonAPI'
 
 import Card from 'components/Card/index'
+import Load from 'components/Load/index'
 
 interface PokemonsInfo {
   id: string
@@ -58,7 +59,6 @@ const Pokedex = () => {
   //     setPokemonInfos(pokemons)
   //   }
   // }, [pokemonInfos, loading])
-
   return (
     <S.MainContainer>
       <S.Header>
@@ -83,8 +83,8 @@ const Pokedex = () => {
                   pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
                 ) {
                   return pokemon
-                } else if (searchTerm.length === 0) {
-                  console.log('Deu certo')
+                } else {
+                  return <h1>Parece que esse pokemon não exites</h1>
                 }
               })
               .map((pokemon) => (
@@ -100,7 +100,7 @@ const Pokedex = () => {
                 />
               ))}
         </S.CardContainer>
-        {loading && <h1>Carregando...</h1>}
+        {loading && <Load />}
       </S.BoxContent>
     </S.MainContainer>
   )
