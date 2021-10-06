@@ -37,7 +37,11 @@ const Pokedex = () => {
   const [pokemonInfos, setPokemonInfos] = useState<PokemonsInfo[]>([])
   const [searchTerm, setSearchTerm] = useState<string>('')
 
-  const { data: { pokemons = [] } = {} } = useQuery(POKEMON_API, {
+  const {
+    data: { pokemons = [] } = {},
+    loading,
+    error
+  } = useQuery(POKEMON_API, {
     variables: {
       first: 151
     }
@@ -48,7 +52,12 @@ const Pokedex = () => {
       setPokemonInfos(pokemons)
     }
   }, [pokemonInfos])
-  console.log(pokemonInfos)
+
+  // useEffect(() => {
+  //   if (pokemons && loading) {
+  //     setPokemonInfos(pokemons)
+  //   }
+  // }, [pokemonInfos, loading])
 
   return (
     <S.MainContainer>
@@ -74,6 +83,8 @@ const Pokedex = () => {
                   pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())
                 ) {
                   return pokemon
+                } else if (searchTerm.length === 0) {
+                  console.log('Deu certo')
                 }
               })
               .map((pokemon) => (
@@ -89,6 +100,7 @@ const Pokedex = () => {
                 />
               ))}
         </S.CardContainer>
+        {loading && <h1>Carregando...</h1>}
       </S.BoxContent>
     </S.MainContainer>
   )
