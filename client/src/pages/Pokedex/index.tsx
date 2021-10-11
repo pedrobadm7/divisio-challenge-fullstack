@@ -34,6 +34,8 @@ interface TypesPokemon {
   secondType: string
 }
 
+const pokemonNumbers = 151
+
 const Pokedex = () => {
   const [pokemonInfos, setPokemonInfos] = useState<PokemonsInfo[]>([])
   const [searchTerm, setSearchTerm] = useState<string>('')
@@ -44,7 +46,7 @@ const Pokedex = () => {
     error
   } = useQuery(POKEMON_API, {
     variables: {
-      first: 151
+      first: pokemonNumbers
     }
   })
 
@@ -53,7 +55,7 @@ const Pokedex = () => {
       setPokemonInfos(pokemons)
     }
   }, [pokemonInfos])
-
+  console.log(pokemonInfos)
   // useEffect(() => {
   //   if (pokemons && loading) {
   //     setPokemonInfos(pokemons)
