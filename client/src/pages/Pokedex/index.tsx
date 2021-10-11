@@ -40,11 +40,7 @@ const Pokedex = () => {
   const [pokemonInfos, setPokemonInfos] = useState<PokemonsInfo[]>([])
   const [searchTerm, setSearchTerm] = useState<string>('')
 
-  const {
-    data: { pokemons = [] } = {},
-    loading,
-    error
-  } = useQuery(POKEMON_API, {
+  const { data: { pokemons = [] } = {}, loading } = useQuery(POKEMON_API, {
     variables: {
       first: pokemonNumbers
     }
